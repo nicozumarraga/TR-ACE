@@ -9,11 +9,10 @@ category: "5. CRITERIOS DE ADJUDICACIÓN"
 initial_query: "Cuales son los criterios de adjudicación?"
 
 # Training hyperparameters
-batch_size: 2
-num_epochs: 5
+batch_size: 8
+num_epochs: 15
 learning_rate: null  # Uses default for model type
-max_length: 256
-device: cpu
+max_length: 512
 
 # Dataset configuration
 val_split: 0.2

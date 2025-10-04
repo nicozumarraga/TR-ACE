@@ -37,7 +37,7 @@ class TrainingConfig:
     num_epochs: int = 1
     learning_rate: float = None  # Will use default from model_type if not specified
     max_length: int = 256
-    device: str = "cpu"
+    device: str = None  # Auto-detect: cuda if available, else cpu
 
     # Dataset configuration
     val_split: float = 0.2
@@ -56,6 +56,9 @@ class TrainingConfig:
 
         if self.learning_rate is None:
             self.learning_rate = model_config["learning_rate"]
+
+        if self.device is None:
+            self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
     @property
     def category_slug(self) -> str:
@@ -179,7 +182,8 @@ def main():
     )
 
     # Train
-    logger.info(f"Starting Training - Model: {config.model_type}, Loss: {get_model_config(config.model_type)['loss_name']}")
+    model_device = next(model.parameters()).device
+    logger.info(f"Starting Training - Model: {config.model_type}, Loss: {get_model_config(config.model_type)['loss_name']}, Device: {model_device}")
     trainer.train(num_epochs=config.num_epochs, checkpoint_dir=config.checkpoint_dir)
 
     # Save final model with category and type name
