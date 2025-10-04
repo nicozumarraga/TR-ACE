@@ -24,9 +24,6 @@ def run_all_experiments():
     # Get all config files
     config_files = sorted(CONFIGS_DIR.glob("*.yaml"))
 
-    # Filter to run only specific experiment(s)
-    config_files = [f for f in config_files if f.stem == "embedder_encoder_only"]
-
     print(f"Starting all experiments...")
     print(f"Results directory: {RESULTS_DIR}")
     print(f"Found {len(config_files)} configurations\n")

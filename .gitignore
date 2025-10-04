@@ -10,4 +10,4 @@ public_tender_info_export_*
 
 # Unnecessary training results
 /checkpoints/*
-scripts/*/results/
+scripts/*/results*/
