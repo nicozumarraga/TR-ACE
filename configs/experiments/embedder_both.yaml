@@ -1,0 +1,24 @@
+# Embedder model - Train both encoder and query
+model_type: embedder
+model_name: null  # Uses default: sentence-transformers/all-MiniLM-L6-v2
+freeze_encoder: false
+freeze_query: false
+
+# Data configuration
+category: "5. CRITERIOS DE ADJUDICACIÓN"
+initial_query: "Cuales son los criterios de adjudicación?"
+
+# Training hyperparameters
+batch_size: 2
+num_epochs: 5
+learning_rate: null  # Uses default for model type
+max_length: 256
+device: cpu
+
+# Dataset configuration
+val_split: 0.2
+num_positives_per_tender: 2
+num_negatives_per_positive: 4
+
+# Logging
+debug: false

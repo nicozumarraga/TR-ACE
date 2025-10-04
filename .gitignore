@@ -1,0 +1,13 @@
+# Misc
+.venv
+.env
+__pycache__
+.DS_Store
+
+# Confidential training data
+/data/
+public_tender_info_export_*
+
+# Unnecessary training results
+/checkpoints/*
+scripts/*/results/

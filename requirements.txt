@@ -1,0 +1,8 @@
+boto3
+python-dotenv
+torch
+transformers
+sentence_transformers
+pandas
+matplotlib
+seaborn
