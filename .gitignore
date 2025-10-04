@@ -5,7 +5,7 @@ __pycache__
 .DS_Store
 
 # Confidential training data
-/data/
+/data/*/*/*
 public_tender_info_export_*
 
 # Unnecessary training results
